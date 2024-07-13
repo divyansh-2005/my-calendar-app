@@ -1,0 +1,27 @@
+.todo-box {
+    margin: 10px;
+    padding: 0.6em 1.2em;
+    background-color: #1a1a1a;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, border-color 0.25s;
+  }
+  
+  .todo-box:hover {
+    border-color: #646cff;
+  }
+  
+  .todo-box:focus,
+  .todo-box:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  

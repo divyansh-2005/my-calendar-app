@@ -1,0 +1,53 @@
+.expense-page {
+  margin: 20px;
+}
+
+.expense-form {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
+  padding: 0.6em 1.2em;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  transition: border-color 0.25s;
+}
+
+.btn:hover {
+  border-color: #646cff;
+}
+
+.expense-list {
+  margin-top: 20px;
+}
+
+.expense-item {
+  background-color: #333333;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}

@@ -4,7 +4,8 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const expenseRoutes = require('./routes/expenseRoutes');
 const todoRoutes = require('./routes/todoRoutes');
-const auth = require('./routes/authRoutes');
+const authRoutes = require('./routes/authRoutes');
+const noteRoutes = require('./routes/noteRoutes');
 
 dotenv.config();
 connectDB();
@@ -14,8 +15,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/expenses', expenseRoutes);
-app.use('/api/todos',todoRoutes);
-app.use('/api/auth',auth);
+app.use('/api/todos', todoRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/notes', noteRoutes);
 
 app.get('/', (req, res) => res.send('API is running...'));
 

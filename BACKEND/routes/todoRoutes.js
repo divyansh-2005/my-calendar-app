@@ -6,13 +6,14 @@ const {
   updateTodo,
   deleteTodo,
 } = require('../controllers/todoController');
+const auth = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-router.get('/', getTodos);
-router.get('/:date', getTodosByDate);
-router.post('/', createTodo);
-router.put('/:id', updateTodo);
-router.delete('/:id', deleteTodo);
+router.get('/', auth, getTodos);
+router.get('/:date', auth, getTodosByDate);
+router.post('/', auth, createTodo);
+router.put('/:id', auth, updateTodo);
+router.delete('/:id', auth, deleteTodo);
 
 module.exports = router;

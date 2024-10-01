@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/ToDoPage.css';
-import axios from 'axios';
+import axiosInstance from '../utils/axiosInstance';
 
 const ToDoPage = ({ selectedDate, todos, setTodos }) => {
   const [form, setForm] = useState({ title: '', description: '', dueDate: '' });
@@ -10,7 +10,7 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
     const fetchTodos = async () => {
       try {
         const dateStr = selectedDate.toISOString().substr(0, 10);
-        const response = await axios.get(`http://localhost:5000/api/todos/${dateStr}`);
+        const response = await axiosInstance.get(`/todos/${dateStr}`);
         setTodos(response.data);
       } catch (error) {
         console.error('Error fetching todos:', error);
@@ -34,11 +34,11 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
       title: form.title,
       description: form.description,
       dueDate: dateWithoutTime.toISOString().substr(0, 10),
-      completed: false, // Default to false when adding a new todo
+      completed: false,
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/todos', newTodo);
+      const response = await axiosInstance.post('/todos', newTodo);
       setTodos([...todos, response.data]);
       setForm({ title: '', description: '', dueDate: '' });
     } catch (error) {
@@ -57,11 +57,11 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
       title: form.title,
       description: form.description,
       dueDate: form.dueDate,
-      completed: editingTodo.completed, // Preserve completed status on update
+      completed: editingTodo.completed,
     };
 
     try {
-      const response = await axios.put(`http://localhost:5000/api/todos/${editingTodo._id}`, updatedTodo);
+      const response = await axiosInstance.put(`/todos/${editingTodo._id}`, updatedTodo);
       setTodos(todos.map(todo => (todo._id === editingTodo._id ? response.data : todo)));
       setEditingTodo(null);
       setForm({ title: '', description: '', dueDate: '' });
@@ -72,7 +72,7 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/todos/${id}`);
+      await axiosInstance.delete(`/todos/${id}`);
       setTodos(todos.filter(todo => todo._id !== id));
     } catch (error) {
       console.error('Error deleting todo:', error);
@@ -82,7 +82,7 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
   const handleToggleCompleted = async (todo) => {
     const updatedTodo = { ...todo, completed: !todo.completed };
     try {
-      const response = await axios.put(`http://localhost:5000/api/todos/${todo._id}`, updatedTodo);
+      const response = await axiosInstance.put(`/todos/${todo._id}`, updatedTodo);
       setTodos(todos.map(t => (t._id === todo._id ? response.data : t)));
     } catch (error) {
       console.error('Error updating todo completion:', error);

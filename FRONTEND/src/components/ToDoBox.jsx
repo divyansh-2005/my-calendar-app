@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/ToDoBox.css';
-import axios from 'axios';
+import axiosInstance from '../utils/axiosInstance';
 
 const ToDoBox = ({ selectedDate }) => {
   const [totalTodos, setTotalTodos] = useState(0);
@@ -10,7 +10,7 @@ const ToDoBox = ({ selectedDate }) => {
   useEffect(() => {
     const fetchTotalTodos = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/todos/${selectedDate.toISOString().substr(0, 10)}`);
+        const response = await axiosInstance.get(`/todos/${selectedDate.toISOString().substr(0, 10)}`);
         setTotalTodos(response.data.length);
       } catch (error) {
         console.error('Error fetching total todos:', error);

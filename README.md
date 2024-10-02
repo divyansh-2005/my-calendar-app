@@ -45,6 +45,7 @@ My Calendar App is a full-stack application designed to help users manage their 
 - **Frontend:**
   - Node.js (v14 or higher)
   - npm or yarn
+  - react and vite
 
 - **Backend:**
   - Node.js (v14 or higher)
@@ -85,7 +86,7 @@ cd my-calendar-app
 4. Start the backend server:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
    The server will run on `http://localhost:5000`.
@@ -107,7 +108,7 @@ cd my-calendar-app
 3. Start the frontend development server:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
    The frontend will run on `http://localhost:3000`.

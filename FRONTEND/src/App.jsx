@@ -5,6 +5,9 @@ import Navbar from './components/Navbar';
 import HomePage from './pages/Homepage';
 import ExpensePage from './pages/ExpensePage';
 import ToDoPage from './pages/ToDoPage';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
+import { AuthProvider } from './utils/AuthContext';
 
 const App = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -17,6 +20,7 @@ const App = () => {
   };
 
   return (
+  <AuthProvider>  
     <Router>
       <div className="App">
         <Navbar />
@@ -34,6 +38,7 @@ const App = () => {
                 />
               }
             />
+            
             <Route
               path="/expenses"
               element={
@@ -55,10 +60,14 @@ const App = () => {
                 />
               }
             />
+            
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
           </Routes>
         </main>
       </div>
     </Router>
+  </AuthProvider>
   );
 };
 

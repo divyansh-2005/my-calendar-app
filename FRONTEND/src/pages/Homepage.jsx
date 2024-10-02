@@ -17,8 +17,10 @@ const HomePage = ({ selectedDate, totalExpense, onDateClick, setTotalExpense }) 
     <div className="home-page">
       <Calendar onDateClick={onDateClick} />
       <h2>Selected Date: {selectedDate ? selectedDate.toLocaleDateString() : 'None'}</h2>
+      <div className='flex flex-col lg:flex-row'>
       <ExpenseBox selectedDate={selectedDate} totalExpense={totalExpense} setTotalExpense={setTotalExpense} onClick={handleExpenseBoxClick} />
       <ToDoBox selectedDate={selectedDate} />
+      </div>
     </div>
   );
 };

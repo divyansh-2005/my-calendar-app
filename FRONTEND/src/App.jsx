@@ -38,6 +38,7 @@ const App = () => {
                 />
               }
             />
+            
             <Route
               path="/expenses"
               element={
@@ -59,6 +60,7 @@ const App = () => {
                 />
               }
             />
+            
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
           </Routes>

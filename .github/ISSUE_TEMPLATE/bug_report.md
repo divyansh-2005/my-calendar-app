@@ -1,8 +1,8 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: ''
-labels: ''
+title: "[BUG]"
+labels: bug, gssoc-ext, hacktoberfest
 assignees: ''
 
 ---
@@ -20,8 +20,15 @@ Steps to reproduce the behavior:
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
-**Screenshots**
+**Screenshots before**
 If applicable, add screenshots to help explain your problem.
+
+**screenshots after fix***
+
+**check list**
+- [ ] I am contributing under GSSoC-ext
+- [ ] I am contributing under hacktoberfest
+- [ ] I follow contribution guidlines
 
 **Additional context**
 Add any other context about the problem here.

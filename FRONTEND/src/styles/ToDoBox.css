@@ -18,10 +18,12 @@
   
   .todo-box:hover {
     border-color: #646cff;
+    box-shadow: 0 0 10px #646cff;
   }
   
   .todo-box:focus,
   .todo-box:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+    box-shadow: 0 0 10px #646cff;
   }
   

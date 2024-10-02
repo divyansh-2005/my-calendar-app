@@ -1,25 +1,38 @@
 import React, { createContext, useState, useEffect } from 'react';
-import {jwtDecode} from 'jwt-decode';
+import axiosInstance from './axiosInstance';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setUser(jwtDecode(token));
-    }
-  }, []);
-
   const logout = () => {
     localStorage.removeItem('token');
     setUser(null);
   };
 
+  const checkUserStatus = async () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const response = await axiosInstance.get('/auth/me');
+        setUser(response.data.user); 
+      } catch (error) {
+        console.log('Error fetching user data:', error);
+        setUser(null);
+        logout()
+      }
+    }
+  };
+
+  useEffect(() => {
+    checkUserStatus();
+  }, []);
+
+
+
   return (
-    <AuthContext.Provider value={{ user, setUser, logout }}>
+    <AuthContext.Provider value={{ user, setUser, logout ,checkUserStatus }}>
       {children}
     </AuthContext.Provider>
   );

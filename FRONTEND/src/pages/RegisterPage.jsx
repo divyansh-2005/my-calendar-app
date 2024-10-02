@@ -9,7 +9,7 @@ const RegisterPage = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-  const { setUser } = useContext(AuthContext);
+  const { checkUserStatus } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
@@ -21,7 +21,7 @@ const RegisterPage = () => {
     try {
       const response = await axiosInstance.post('auth/register', { username, email, password });
       localStorage.setItem('token', response.data.token);
-      setUser(response.data.user);
+      checkUserStatus()
       console.log('Registration successfully');
       navigate('/');
     } catch (err) {

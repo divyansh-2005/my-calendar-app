@@ -7,7 +7,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const { setUser } = useContext(AuthContext);
+  const { checkUserStatus } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -15,7 +15,7 @@ const LoginPage = () => {
     try {
       const response = await axiosInstance.post('auth/login', { email, password });
       localStorage.setItem('token', response.data.token);
-      setUser(response.data.user);
+      checkUserStatus()
       console.log('Logged in successfully');
       navigate('/');
     } catch (err) {

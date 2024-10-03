@@ -170,6 +170,7 @@ This project is licensed under the MIT License.
 ## 🙌 Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
+For more information on how to contribute, please refer to our [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 

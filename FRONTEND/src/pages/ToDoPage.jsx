@@ -91,9 +91,9 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
 
   return (
     <div className="todo-page">
-      <h2>To-Dos for {selectedDate.toLocaleDateString()}</h2>
-      <form onSubmit={editingTodo ? handleUpdate : handleSubmit} className="todo-form">
-        <div className="form-group">
+      <h2 className='text-xl'>To-Dos for <span className='font-bold'> {selectedDate.toLocaleDateString()}</span></h2>
+      <form onSubmit={editingTodo ? handleUpdate : handleSubmit} className="todo-form mt-4 flex flex-col justify-center items-center">
+        <div className="form-group max-w-xl">
           <label>Title:</label>
           <input
             type="text"
@@ -101,9 +101,10 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
             value={form.title}
             onChange={handleChange}
             required
+            placeholder='Title for Todo'
           />
         </div>
-        <div className="form-group">
+        <div className="form-group max-w-xl">
           <label>Description:</label>
           <input
             type="text"
@@ -111,9 +112,10 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
             value={form.description}
             onChange={handleChange}
             required
+            placeholder='Description'
           />
         </div>
-        <div className="form-group">
+        <div className="form-group max-w-xl">
           <label>Due Date:</label>
           <input
             type="date"

@@ -55,16 +55,33 @@ When submitting a Pull Request, please include the following information in your
 ### Example PR Description
 
 ```
-### Description
-Adds a feature to allow users to set reminders for events.
+### 🛠️ Fixes Issue
+Closes #<issue_number>
 
-### Related Issues
-Fixes #45
+### 👨‍💻 Description
+- Briefly describe the feature or bug fix you've implemented.
+- Highlight any major changes or added functionality.
+- Mention how it enhances the project.
 
-### How to Test
-1. Create a new event.
-2. Set a reminder for the event.
-3. Check if the reminder is displayed correctly.
+### 📄 Type of Change
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation update (adds or updates related documentation)
+
+### 📷 Screenshots/GIFs (if any)
+Include screenshots or GIFs to demonstrate your changes
+
+### ✅ Checklist
+- [ ] I am a participant of GSSoC-ext.
+- [ ] I have followed the contribution guidelines of this project.
+- [ ] I have viewed deployment of my code.
+- [ ] My changes generate no new warnings.
+- [ ] I have added documentation to explain my changes.
+
+### 🤝 GSSoC Participation
+- [ ] This PR is submitted under the GSSoC program.
+- [ ] I have taken prior approval for this feature/fix.
 ```
 # Code of Conduct
 

@@ -7,6 +7,7 @@ import ExpensePage from './pages/ExpensePage';
 import ToDoPage from './pages/ToDoPage';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
+import Footer from './components/Footer';
 import { AuthProvider } from './utils/AuthContext';
 
 const App = () => {
@@ -65,6 +66,7 @@ const App = () => {
             <Route path="/login" element={<LoginPage />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   </AuthProvider>

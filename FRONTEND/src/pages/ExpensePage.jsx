@@ -104,9 +104,9 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
 
   return (
     <div className="expense-page">
-      <h2>Expenses for {selectedDate.toLocaleDateString()}</h2>
-      <form onSubmit={editingExpense ? handleUpdate : handleSubmit} className="expense-form">
-        <div className="form-group">
+      <h2 className='text-xl'>Expenses for <span className='font-bold'> {selectedDate.toLocaleDateString()}</span></h2>
+      <form onSubmit={editingExpense ? handleUpdate : handleSubmit} className="expense-form mt-4 flex flex-col justify-center items-center">
+        <div className="form-group max-w-xl">
           <label>Amount:</label>
           <input
             type="number"
@@ -114,9 +114,10 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
             value={form.amount}
             onChange={handleChange}
             required
+            placeholder='Amount'
           />
         </div>
-        <div className="form-group">
+        <div className="form-group max-w-xl">
           <label>Category:</label>
           <input
             type="text"
@@ -124,9 +125,10 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
             value={form.category}
             onChange={handleChange}
             required
+            placeholder='Category'
           />
         </div>
-        <div className="form-group">
+        <div className="form-group max-w-xl">
           <label>Description:</label>
           <input
             type="text"
@@ -134,6 +136,7 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
             value={form.description}
             onChange={handleChange}
             required
+            placeholder='Description'
           />
         </div>
         <button type="submit" className="btn">{editingExpense ? 'Update Expense' : 'Add Expense'}</button>

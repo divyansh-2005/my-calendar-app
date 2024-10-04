@@ -22,12 +22,9 @@ const ExpenseBox = ({ selectedDate, totalExpense, setTotalExpense }) => {
     }
   }, [selectedDate, setTotalExpense]);
 
-  const handleClick = () => {
-    navigate(`/expenses?date=${selectedDate.toISOString().substr(0, 10)}`);
-  };
 
   return (
-    <div className="expense-box" onClick={handleClick}>
+    <div className="expense-box">
       <h3>Total Expenses</h3>
       <p>${totalExpense.toFixed(2)}</p>
     </div>

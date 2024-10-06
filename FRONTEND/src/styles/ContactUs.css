@@ -31,7 +31,6 @@ body {
     margin-top: 0.2rem; 
 }
 
-
 /* Main Contact Content */
 .contact-content {
     max-width: 1000px;
@@ -67,19 +66,19 @@ body {
 }
 
 .form-group {
-    margin-bottom: 10px;
+    margin-bottom: 25px; /* Increased margin for better spacing between form groups */
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px; /* Added margin for spacing below the label */
     color: #fff;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 8px;
+    padding: 12px; /* Increased padding for better touch targets */
     border: 1px solid #4b3f3f;
     border-radius: 4px;
     font-size: 1rem;
@@ -96,19 +95,20 @@ body {
 
 /* Button Styles */
 .submit-button {
-    padding: 0.8rem;
-    background-color: #4b3f3f;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s, border-color 0.25s;
+    padding: 0.6em 1.2em; /* Match button padding to .btn */
+    background-color: #1a1a1a; /* Background color */
+    color: #fff; /* Text color */
+    border: 1px solid transparent; /* Transparent border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 1em; /* Font size */
+    font-weight: 500; /* Font weight */
+    font-family: inherit; /* Inherit font family */
+    transition: border-color 0.25s; /* Transition for border color */
 }
 
 .submit-button:hover {
-    background-color: #3b302f;
-    border-color: #646cff;
+    border-color: #646cff; /* Border color on hover */
 }
 
 /* Footer Styles */

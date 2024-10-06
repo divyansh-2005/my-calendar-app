@@ -22,12 +22,9 @@ const ToDoBox = ({ selectedDate }) => {
     }
   }, [selectedDate]);
 
-  const handleClick = () => {
-    navigate(`/todos?date=${selectedDate.toISOString().substr(0, 10)}`);
-  };
 
   return (
-    <div className="todo-box" onClick={handleClick}>
+    <div className="todo-box">
       <h3>Total To-Dos</h3>
       <p>{totalTodos}</p>
     </div>

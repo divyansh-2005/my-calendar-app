@@ -31,7 +31,7 @@ const createTodo = async (req, res) => {
   const todo = new Todo({
     user: req.user.id,
     title,
-    description,
+    description,  
     dueDate,
   });
   try {

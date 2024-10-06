@@ -3,9 +3,9 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const { userRegisterSchema, userLoginSchema } = require('../utils/validation/auth');
-import { asyncHandler } from '../utils/AsyncHandler';
-import { ApiError } from '../utils/ApiError';
-import { ApiResponse } from '../utils/ApiResponse';
+const {asyncHandler} = require( '../utils/AsyncHandler');
+const  { ApiError } =  require('../utils/ApiError');
+
 
 // Register user -- Made the changes in this Register Route 
 const registerUser = asyncHandler(async (req, res) => {

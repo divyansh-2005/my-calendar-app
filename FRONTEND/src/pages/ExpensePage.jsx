@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/ExpensePage.css';
 import axios from 'axios';
+import Navbar from '../components/Navbar';
 
 const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) => {
   const [form, setForm] = useState({
@@ -103,6 +104,8 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
   const totalExpenses = filteredExpenses.reduce((total, expense) => total + expense.amount, 0);
 
   return (
+<>
+    <Navbar />
     <div className="expense-page">
       <h2 className='text-xl'>Expenses for <span className='font-bold'> {selectedDate.toLocaleDateString()}</span></h2>
       <form onSubmit={editingExpense ? handleUpdate : handleSubmit} className="expense-form mt-4 flex flex-col justify-center items-center">
@@ -115,7 +118,7 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
             onChange={handleChange}
             required
             placeholder='Amount'
-          />
+            />
         </div>
         <div className="form-group max-w-xl">
           <label>Category:</label>
@@ -126,7 +129,7 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
             onChange={handleChange}
             required
             placeholder='Category'
-          />
+            />
         </div>
         <div className="form-group max-w-xl">
           <label>Description:</label>
@@ -158,6 +161,7 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
         )}
       </div>
     </div>
+        </>
   );
 };
 

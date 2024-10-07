@@ -5,7 +5,7 @@ import Calendar from "../components/Calendar";
 import ExpenseBox from "../components/ExpenseBox";
 import ToDoBox from "../components/ToDoBox";
 import { Sidebar } from "../components/Sidebar";
-
+import Navbar from '../components/Navbar';
 const HomePage = ({
   selectedDate,
   totalExpense,
@@ -13,28 +13,30 @@ const HomePage = ({
   setTotalExpense,
 }) => {
   const navigate = useNavigate();
-
+  
   const handleExpenseBoxClick = () => {
     const dateStr = selectedDate.toISOString().substr(0, 10);
     navigate(`/expenses?date=${dateStr}`);
   };
-
+  
   const handleAddExpense = () => {
     const dateStr = selectedDate.toISOString().substr(0, 10);
     navigate(`/expenses?date=${dateStr}`);
   };
-
+  
   const handleAddTodo = () => {
     const dateStr = selectedDate.toISOString().substr(0, 10);
     navigate(`/todos?date=${dateStr}`);
   };
-
+  
   return (
+    <>
+    <Navbar />
     <div className="flex items-start justify-start w-full">
       <Sidebar 
         onAddExpense={handleAddExpense}
         onAddTodo={handleAddTodo}
-      />
+        />
       <div className="home-page flex-1">
         <Calendar onDateClick={onDateClick} />
         <h2>
@@ -52,6 +54,7 @@ const HomePage = ({
         </div>
       </div>
     </div>
+        </>
   );
 };
 

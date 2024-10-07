@@ -13,6 +13,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.7.2",
+    "framer-motion": "^11.11.1",
     "jwt-decode": "^4.0.0",
     "lucide-react": "^0.447.0",
     "react": "^18.3.1",

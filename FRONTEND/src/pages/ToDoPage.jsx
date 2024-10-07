@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/ToDoPage.css';
 import axiosInstance from '../utils/axiosInstance';
+import Navbar from '../components/Navbar';
 
 const ToDoPage = ({ selectedDate, todos, setTodos }) => {
   const [form, setForm] = useState({ title: '', description: '', dueDate: '' });
@@ -90,6 +91,8 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="todo-page">
       <h2 className='text-xl'>To-Dos for <span className='font-bold'> {selectedDate.toLocaleDateString()}</span></h2>
       <form onSubmit={editingTodo ? handleUpdate : handleSubmit} className="todo-form mt-4 flex flex-col justify-center items-center">
@@ -102,7 +105,7 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
             onChange={handleChange}
             required
             placeholder='Title for Todo'
-          />
+            />
         </div>
         <div className="form-group max-w-xl">
           <label>Description:</label>
@@ -123,7 +126,7 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
             value={form.dueDate}
             onChange={handleChange}
             required
-          />
+            />
         </div>
         <button type="submit" className="btn">{editingTodo ? 'Update Todo' : 'Add Todo'}</button>
       </form>
@@ -136,7 +139,7 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
                   type="checkbox"
                   checked={todo.completed}
                   onChange={() => handleToggleCompleted(todo)}
-                />
+                  />
                 <span className={todo.completed ? 'completed' : ''}>{todo.title}</span>
               </div>
               <div>Description: {todo.description}</div>
@@ -150,6 +153,7 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
         )}
       </div>
     </div>
+          </>
   );
 };
 

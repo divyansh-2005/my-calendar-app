@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Navbar';
+
 import HomePage from './pages/Homepage';
+import Portfolio from './pages/Portfolio';
 import ExpensePage from './pages/ExpensePage';
 import ToDoPage from './pages/ToDoPage';
 import RegisterPage from './pages/RegisterPage';
@@ -24,7 +25,6 @@ const App = () => {
   <AuthProvider>  
     <Router>
       <div className="App">
-        <Navbar />
         <main>
           <Routes>
             <Route
@@ -37,6 +37,13 @@ const App = () => {
                   onDateClick={handleDateClick}
                   setTotalExpense={setTotalExpense}
                 />
+              }
+            />
+
+            <Route
+              path="/main"
+              element={
+                <Portfolio/>
               }
             />
             

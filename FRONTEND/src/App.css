@@ -2,3 +2,21 @@
     text-align: center;
   }
   
+  .trailing-ray {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust color for the ray */
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Soft glow effect */
+    animation: fadeOut 0.5s forwards;
+  }
+  
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      transform: scale(2); /* Enlarge before fading */
+    }
+  }
+  

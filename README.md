@@ -173,7 +173,15 @@ Contributions are welcome! Please fork the repository and create a pull request 
 For more information on how to contribute, please refer to our [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Our Valuable Contributors
-[![Contributors](https://contrib.rocks/image?repo=divyansh-2005/my-calendar-app)](https://github.com/divyansh-2005/my-calendar-app/graphs/contributors)
+
+- We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating E-nyanjyoti to a greater heights.
+- Make sure you show some love by giving ⭐ to our repository.
+
+<div align="center">
+  <a href="https://github.com/Vin205/my-calendar-app">
+    <img src="https://contrib.rocks/image?repo=divyansh-2005/my-calendar-app&&max=1000&&cachebust=1" />
+  </a>
+</div>
 
 ---
 

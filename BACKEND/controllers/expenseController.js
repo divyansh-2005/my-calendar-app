@@ -29,7 +29,7 @@ const getExpensesByDate = async (req, res) => {
 const createExpense = async (req, res) => {
   const { date, amount, category, description } = req.body;
   const expense = new Expense({
-    user: req.user.id,
+    // user: req.user.id,
     date,
     amount,
     category,
@@ -38,6 +38,7 @@ const createExpense = async (req, res) => {
   try {
     const savedExpense = await expense.save();
     res.status(201).json(savedExpense);
+    
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

@@ -1,12 +1,12 @@
 // controllers/authController.js
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const {
   userRegisterSchema,
   userLoginSchema,
 } = require("../utils/validation/auth");
 const { asyncHandler } = require("../utils/AsyncHandler");
+const generateToken = require("../middleware/jwt");
 
 // Register user -- Made the changes in this Register Route
 const registerUser = asyncHandler(async (req, res) => {
@@ -32,22 +32,13 @@ const registerUser = asyncHandler(async (req, res) => {
 
   await user.save();
 
-  // Create JWT
-  const payload = {
-    user: {
-      id: user.id,
-    },
-  };
+  const token = await generateToken(user);
 
-  jwt.sign(
-    payload,
-    process.env.JWT_SECRET,
-    { expiresIn: 3600 },
-    (err, token) => {
-      if (err) throw err;
-      res.json({ token });
-    }
-  );
+  return res.status(200).json({
+    success: true,
+    message: "Account created. You are now signed in.",
+    token,
+  });
 });
 
 // Login user
@@ -68,22 +59,13 @@ const loginUser = asyncHandler(async (req, res) => {
       return res.status(400).json({ message: "Invalid Credentials" });
     }
 
-    // Create JWT
-    const payload = {
-      user: {
-        id: user.id,
-      },
-    };
+    const token = await generateToken(user);
 
-    jwt.sign(
-      payload,
-      process.env.JWT_SECRET,
-      { expiresIn: 3600 },
-      (err, token) => {
-        if (err) throw err;
-        res.json({ token });
-      }
-    );
+    return res.status(200).json({
+      success: true,
+      message: "Login successful",
+      token,
+    });
   } catch (error) {
     if (error.isJoi) {
       const errorMessage = error.details[0].message;

@@ -1,4 +1,4 @@
-.expense-page {
+/* .expense-page {
   margin: 20px;
 }
 
@@ -50,4 +50,147 @@
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 8px;
+} */
+
+
+
+/* New Styling */
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+.expense-page {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 2%;
+  margin-bottom: 4%;
+  padding: 20px;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+h2 span {
+  font-weight: bold;
+  color: #ffdf00;
+}
+
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.form-group label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+}
+
+.form-group input::placeholder {
+  color: #888;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+.expense-list {
+  margin-top: 20px;
+}
+
+.expense-item {
+  background-color: #333;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-btn {
+  background-color: #ff9800;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #e68900;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+h3 {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.no-expenses {
+  font-size: 1rem;
+  color: #bbb;
+}
+
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 20px; 
+  right: 20px;
+  background-color: #4caf50; 
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0; 
+  transition: opacity 0.5s, transform 0.5s;
+  transform: translateY(20px); 
+  z-index: 1000;
+}
+
+.toast.show {
+  opacity: 1; 
+  transform: translateY(0);
 }

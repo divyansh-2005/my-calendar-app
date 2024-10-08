@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.get('/', auth, getExpenses);
 router.get('/:date', auth, getExpensesByDate);
-router.post('/', auth, createExpense);
+router.post('/',  createExpense);
 router.put('/:id', auth, updateExpense);
 router.delete('/:id', auth, deleteExpense);
 

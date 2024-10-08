@@ -27,19 +27,17 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const dateWithoutTime = new Date(selectedDate);
-    dateWithoutTime.setHours(0, 0, 0, 0);
 
     const newTodo = {
       title: form.title,
       description: form.description,
-      dueDate: dateWithoutTime.toISOString().substr(0, 10),
+      dueDate: form.dueDate,
       completed: false,
     };
 
     try {
       const response = await axiosInstance.post('/todos', newTodo);
-      setTodos([...todos, response.data]);
+      setTodos((prevTodos) => [...prevTodos, response.data]);
       setForm({ title: '', description: '', dueDate: '' });
     } catch (error) {
       console.error('Error adding todo:', error);
@@ -56,15 +54,17 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
     const updatedTodo = {
       title: form.title,
       description: form.description,
-      dueDate: form.dueDate,
+      dueDate: editingTodo.dueDate,
       completed: editingTodo.completed,
     };
 
     try {
       const response = await axiosInstance.put(`/todos/${editingTodo._id}`, updatedTodo);
-      setTodos(todos.map(todo => (todo._id === editingTodo._id ? response.data : todo)));
+      setTodos((prevTodos) =>
+        prevTodos.map((todo) => (todo._id === editingTodo._id ? response.data : todo))
+      );
       setEditingTodo(null);
-      setForm({ title: '', description: '', dueDate: '' });
+      setForm({ title: '', description: '' });
     } catch (error) {
       console.error('Error updating todo:', error);
     }
@@ -73,7 +73,7 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
   const handleDelete = async (id) => {
     try {
       await axiosInstance.delete(`/todos/${id}`);
-      setTodos(todos.filter(todo => todo._id !== id));
+      setTodos((prevTodos) => prevTodos.filter((todo) => todo._id !== id));
     } catch (error) {
       console.error('Error deleting todo:', error);
     }
@@ -83,7 +83,9 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
     const updatedTodo = { ...todo, completed: !todo.completed };
     try {
       const response = await axiosInstance.put(`/todos/${todo._id}`, updatedTodo);
-      setTodos(todos.map(t => (t._id === todo._id ? response.data : t)));
+      setTodos((prevTodos) =>
+        prevTodos.map((t) => (t._id === todo._id ? response.data : t))
+      );
     } catch (error) {
       console.error('Error updating todo completion:', error);
     }

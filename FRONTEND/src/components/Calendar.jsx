@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import '../styles/Calendar.css';
 
@@ -42,11 +43,16 @@ const Calendar = ({ onDateClick }) => {
   const currentMonthIndex = today.getMonth();
   const currentYearNum = today.getFullYear();
 
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+
   return (
     <div className="calendar">
       <div className="calendar-nav">
         <div className="nav-left">
-          <div className="current-month">{`${currentMonth + 1}/${currentYear}`}</div>
+          <div className="current-month">{`${monthNames[currentMonth]} ${currentYear}`}</div>
         </div>
         <div className="nav-right">
           <button className="btn" onClick={handlePrevMonth}>

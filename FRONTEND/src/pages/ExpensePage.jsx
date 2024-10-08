@@ -73,7 +73,7 @@ const ExpensePage = ({
       // Show toast notification
       setToastMessage("Expense added successfully!");
       setShowToast(true);
-      setTimeout(() => setShowToast(false), 20000);
+      setTimeout(() => setShowToast(false), 2000);
     } catch (error) {
       console.error("Error adding expense:", error);
     }

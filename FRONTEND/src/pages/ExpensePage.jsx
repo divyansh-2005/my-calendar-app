@@ -1,20 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/ExpensePage.css';
-import axios from 'axios';
+import React, { useState, useEffect, useContext } from "react";
+import "../styles/ExpensePage.css";
+import axios from "axios";
+import { ThemeContext } from "../utils/ThemeContext";
 
-const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) => {
+const ExpensePage = ({
+  selectedDate,
+  expenses,
+  setExpenses,
+  setTotalExpense,
+}) => {
   const [form, setForm] = useState({
-    amount: '',
-    category: '',
-    description: ''
+    amount: "",
+    category: "",
+    description: "",
   });
   const [editingExpense, setEditingExpense] = useState(null);
+  const themeCtx = useContext(ThemeContext);
 
   useEffect(() => {
     setForm({
-      amount: '',
-      category: '',
-      description: ''
+      amount: "",
+      category: "",
+      description: "",
     });
     setEditingExpense(null);
   }, [selectedDate]);
@@ -23,13 +30,18 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
     const fetchExpenses = async () => {
       try {
         const dateStr = selectedDate.toISOString().substr(0, 10);
-        const response = await axios.get(`http://localhost:5000/api/expenses/${dateStr}`);
+        const response = await axios.get(
+          `http://localhost:5000/api/expenses/${dateStr}`
+        );
         setExpenses(response.data);
 
-        const total = response.data.reduce((total, expense) => total + expense.amount, 0);
+        const total = response.data.reduce(
+          (total, expense) => total + expense.amount,
+          0
+        );
         setTotalExpense(total);
       } catch (error) {
-        console.error('Error fetching expenses:', error);
+        console.error("Error fetching expenses:", error);
       }
     };
 
@@ -46,17 +58,20 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
     dateWithoutTime.setHours(0, 0, 0, 0);
 
     const newExpense = {
-      date: dateWithoutTime.toISOString().split('T')[0],
+      date: dateWithoutTime.toISOString().split("T")[0],
       amount: parseFloat(form.amount),
       category: form.category,
-      description: form.description
+      description: form.description,
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/expenses', newExpense);
+      const response = await axios.post(
+        "http://localhost:5000/api/expenses",
+        newExpense
+      );
       setExpenses([...expenses, response.data]);
     } catch (error) {
-      console.error('Error adding expense:', error);
+      console.error("Error adding expense:", error);
     }
   };
 
@@ -65,7 +80,7 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
     setForm({
       amount: expense.amount,
       category: expense.category,
-      description: expense.description
+      description: expense.description,
     });
   };
 
@@ -74,38 +89,58 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
     const updatedExpense = {
       amount: parseFloat(form.amount),
       category: form.category,
-      description: form.description
+      description: form.description,
     };
 
     try {
-      const response = await axios.put(`http://localhost:5000/api/expenses/${editingExpense._id}`, updatedExpense);
-      setExpenses(expenses.map(exp => (exp._id === editingExpense._id ? response.data : exp)));
+      const response = await axios.put(
+        `http://localhost:5000/api/expenses/${editingExpense._id}`,
+        updatedExpense
+      );
+      setExpenses(
+        expenses.map((exp) =>
+          exp._id === editingExpense._id ? response.data : exp
+        )
+      );
       setEditingExpense(null);
-      setForm({ amount: '', category: '', description: '' });
+      setForm({ amount: "", category: "", description: "" });
     } catch (error) {
-      console.error('Error updating expense:', error);
+      console.error("Error updating expense:", error);
     }
   };
 
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/expenses/${id}`);
-      setExpenses(expenses.filter(exp => exp._id !== id));
+      setExpenses(expenses.filter((exp) => exp._id !== id));
     } catch (error) {
-      console.error('Error deleting expense:', error);
+      console.error("Error deleting expense:", error);
     }
   };
 
-  const filteredExpenses = expenses.filter(expense =>
-    new Date(expense.date).toISOString().substr(0, 10) === selectedDate.toISOString().substr(0, 10)
+  const filteredExpenses = expenses.filter(
+    (expense) =>
+      new Date(expense.date).toISOString().substr(0, 10) ===
+      selectedDate.toISOString().substr(0, 10)
   );
 
-  const totalExpenses = filteredExpenses.reduce((total, expense) => total + expense.amount, 0);
+  const totalExpenses = filteredExpenses.reduce(
+    (total, expense) => total + expense.amount,
+    0
+  );
 
   return (
-    <div className="expense-page">
-      <h2 className='text-xl'>Expenses for <span className='font-bold'> {selectedDate.toLocaleDateString()}</span></h2>
-      <form onSubmit={editingExpense ? handleUpdate : handleSubmit} className="expense-form mt-4 flex flex-col justify-center items-center">
+    <div
+      className={`${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"} expense-page`}
+    >
+      <h2 className="text-xl">
+        Expenses for{" "}
+        <span className="font-bold"> {selectedDate.toLocaleDateString()}</span>
+      </h2>
+      <form
+        onSubmit={editingExpense ? handleUpdate : handleSubmit}
+        className="expense-form mt-4 flex flex-col justify-center items-center "
+      >
         <div className="form-group max-w-xl">
           <label>Amount:</label>
           <input
@@ -114,7 +149,7 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
             value={form.amount}
             onChange={handleChange}
             required
-            placeholder='Amount'
+            placeholder="Amount"
           />
         </div>
         <div className="form-group max-w-xl">
@@ -125,7 +160,7 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
             value={form.category}
             onChange={handleChange}
             required
-            placeholder='Category'
+            placeholder="Category"
           />
         </div>
         <div className="form-group max-w-xl">
@@ -136,21 +171,27 @@ const ExpensePage = ({ selectedDate, expenses, setExpenses, setTotalExpense }) =
             value={form.description}
             onChange={handleChange}
             required
-            placeholder='Description'
+            placeholder="Description"
           />
         </div>
-        <button type="submit" className="btn">{editingExpense ? 'Update Expense' : 'Add Expense'}</button>
+        <button type="submit" className="btn">
+          {editingExpense ? "Update Expense" : "Add Expense"}
+        </button>
       </form>
       <h3>Total Expenses: ${totalExpenses.toFixed(2)}</h3>
       <div className="expense-list">
         {filteredExpenses.length > 0 ? (
-          filteredExpenses.map(expense => (
+          filteredExpenses.map((expense) => (
             <div key={expense._id} className="expense-item">
               <div>Amount: ${expense.amount.toFixed(2)}</div>
               <div>Category: {expense.category}</div>
               <div>Description: {expense.description}</div>
-              <button onClick={() => handleEdit(expense)} className="btn">Edit</button>
-              <button onClick={() => handleDelete(expense._id)} className="btn">Delete</button>
+              <button onClick={() => handleEdit(expense)} className="btn">
+                Edit
+              </button>
+              <button onClick={() => handleDelete(expense._id)} className="btn">
+                Delete
+              </button>
             </div>
           ))
         ) : (

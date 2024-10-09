@@ -9,6 +9,9 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import Footer from './components/Footer';
 import { AuthProvider } from './utils/AuthContext';
+import UserProfile from './pages/UserProfile';
+import AboutUsPage from './pages/AboutUsPage';
+import ContactUsPage from './pages/ContactUs';
 
 const App = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -64,6 +67,9 @@ const App = () => {
             
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/profile" element={<UserProfile />} />
+            <Route path="/AboutUs" element={<AboutUsPage></AboutUsPage>} /> 
+            <Route path="ContactUs" element={<ContactUsPage/>} />
           </Routes>
         </main>
         <Footer />

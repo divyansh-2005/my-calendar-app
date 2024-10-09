@@ -5,6 +5,7 @@ import {
   faXTwitter,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom"; // Import Link
 
 const Footer = () => {
   return (
@@ -21,6 +22,10 @@ const Footer = () => {
           <a
             href="/about"
             className="text-sm md:text-base lg:text-lg bg-customGray text-white font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
+        <div className="flex space-x-2 mb-4 ">
+          <Link
+            to="/AboutUs" 
+            className="bg-customGray text-white text-base font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
           >
             About Us
           </a>
@@ -28,6 +33,12 @@ const Footer = () => {
           <a
             href="/contact"
             className="text-sm md:text-base lg:text-lg bg-customGray text-white font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
+            About Us
+          </Link>
+          <p>|</p>
+          <Link
+            to="/ContactUs" 
+            className="bg-customGray text-white text-base font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
           >
             Contact Us
           </a>
@@ -35,9 +46,15 @@ const Footer = () => {
           <a
             href="/"
             className="text-sm md:text-base lg:text-lg bg-customGray text-white font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
+            Contact Us
+          </Link>
+          <p>|</p>
+          <Link
+            to="/" 
+            className="bg-customGray text-white text-base font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
           >
             Home
-          </a>
+          </Link>
         </div>
       </div>
       <div className="lg:col-span-1 flex flex-col items-center lg:items-end">

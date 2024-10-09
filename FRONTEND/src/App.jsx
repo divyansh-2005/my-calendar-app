@@ -28,7 +28,7 @@ const App = () => {
     <Router>
       <div className="App">
         <Navbar />
-        <main>
+        <main >
           <Routes>
             <Route
               path="/"

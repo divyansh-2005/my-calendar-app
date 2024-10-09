@@ -6,43 +6,43 @@ import {
   faXTwitter,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-4 bg-customGray border-t border-customWhite ">
+    <footer className="w-full relative bottom-0 left-0 grid grid-cols-1 lg:grid-cols-3 gap-4 p-4 bg-customGray border-t border-customWhite overflow-x-hidden">
       <div className="lg:col-span-1 flex flex-col items-center lg:items-baseline">
-        <p className="text-5xl">LOGO</p>
+        <p className="text-lg md:text-2xl lg:text-5xl text-white mb-4 lg:mb-0">LOGO</p>
         {/* <img src="/path-to-your-logo.png" alt="Logo" className="w-24 h-24 mb-4" /> */}
       </div>
       <div className="lg:col-span-1 flex flex-col items-center">
-        <div className="text-center text-xl text-blue-500 font-bold mb-4">
+        <div className="text-xs md:text-base lg:text-xl text-center text-blue-500 font-bold mb-4">
           &copy; {new Date().getFullYear()} Your Company. All rights reserved.
         </div>
-        <div className="flex space-x-2 mb-4 ">
+        <div className="flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-2 mb-4">
           <Link
-            to="/AboutUs" 
-            className="bg-customGray text-white text-base font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
+            to="/AboutUs"
+            className="text-xs md:text-sm lg:text-lg bg-customGray text-white font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
           >
             About Us
           </Link>
-          <p>|</p>
+          <span className="text-white hidden lg:inline">|</span>
           <Link
-            to="/ContactUs" 
-            className="bg-customGray text-white text-base font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
+            to="/ContactUs"
+            className="text-xs md:text-sm lg:text-lg bg-customGray text-white font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
           >
             Contact Us
           </Link>
-          <p>|</p>
+          <span className="text-white hidden lg:inline">|</span>
           <Link
-            to="/" 
-            className="bg-customGray text-white text-base font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
+            to="/"
+            className="text-xs md:text-sm lg:text-lg bg-customGray text-white font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
           >
             Home
           </Link>
         </div>
       </div>
-      <div className="lg:col-span-1 flex flex-col items-end mr-6">
+      <div className="lg:col-span-1 flex flex-col items-center lg:items-end">
         <div className="flex space-x-4">
           <a
             href="https://facebook.com"
@@ -50,7 +50,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-white hover:text-blue-500"
           >
-            <FontAwesomeIcon icon={faFacebook} size="2x" />
+            <FontAwesomeIcon icon={faFacebook} className="text-base md:text-xl lg:text-3xl" />
           </a>
           <a
             href="https://twitter.com"
@@ -58,7 +58,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-white hover:text-blue-500"
           >
-            <FontAwesomeIcon icon={faXTwitter} size="2x" />
+            <FontAwesomeIcon icon={faXTwitter} className="text-base md:text-xl lg:text-3xl" />
           </a>
           <a
             href="https://instagram.com"
@@ -66,7 +66,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-white hover:text-blue-500"
           >
-            <FontAwesomeIcon icon={faInstagram} size="2x" />
+            <FontAwesomeIcon icon={faInstagram} className="text-base md:text-xl lg:text-3xl" />
           </a>
           <a
             href="https://linkedin.com"
@@ -74,7 +74,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-white hover:text-blue-500"
           >
-            <FontAwesomeIcon icon={faLinkedin} size="2x" />
+            <FontAwesomeIcon icon={faLinkedin} className="text-base md:text-xl lg:text-3xl" />
           </a>
         </div>
       </div>

@@ -7,17 +7,17 @@ export const Sidebar = ({ onAddExpense, onAddTodo }) => {
   const themeCtx = useContext(ThemeContext);
   return (
     <div
-      className={`relative w-[12vw] ${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"} h-screen border-r border-white p-2 space-y-6`}
+      className={`relative w-[12vw] transition-all duration-300 ease-in-out ${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"} h-screen border-r border-white p-2 space-y-6`}
     >
       <div
-        className="w-full p-4 flex flex-col justify-center items-center gap-2 rounded-md hover:bg-[#292929] cursor-pointer"
+        className={`w-full p-4 flex flex-col justify-center items-center gap-2 rounded-md transition-all duration-300 ease-in-out ${themeCtx.theme === "light" ? "hover:bg-[#F6F5F2]" : "hover:bg-[#352F44]"}  cursor-pointer`}
         onClick={onAddExpense}
       >
         <IndianRupee />
         <p>Add Expenses</p>
       </div>
       <div
-        className="w-full p-4 flex flex-col justify-center items-center gap-2 rounded-md hover:bg-[#292929] cursor-pointer"
+        className={`w-full p-4 flex flex-col justify-center items-center gap-2 rounded-md transition-all duration-300 ease-in-out ${themeCtx.theme === "light" ? "hover:bg-[#F6F5F2]" : "hover:bg-[#352F44]"}  cursor-pointer`}
         onClick={onAddTodo}
       >
         <CalendarCheck />

@@ -131,7 +131,7 @@ const ExpensePage = ({
 
   return (
     <div
-      className={`${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"} expense-page`}
+      className={`transition-all duration-300 ease-in-out ${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"} expense-page`}
     >
       <h2 className="text-xl">
         Expenses for{" "}

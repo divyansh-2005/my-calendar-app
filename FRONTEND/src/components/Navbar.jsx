@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
-import { faCalendarAlt, faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarAlt,
+  faUserCircle,
+  faMoon,
+  faSun,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { ThemeContext } from "../utils/ThemeContext";
 
 const Navbar = () => {
+  const [toggled, setToggled] = useState(false);
   const themeCtx = useContext(ThemeContext);
+
+  const themeSwitchHandler = () => {
+    themeCtx.themeSwitch();
+    setToggled((prev) => !prev);
+  };
   return (
     <nav
-      className={`navbar ${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"}`}
+      className={`navbar transition-all duration-300 ease-in-out ${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"}`}
     >
       <div className="navbar-left">
         <Link to="/" className="navbar-logo">
@@ -25,10 +36,14 @@ const Navbar = () => {
       </div>
       <div className="navbar-right">
         <button
-          className="bg-green-200 p-4 rounded-3xl"
-          onClick={themeCtx.themeSwitch}
+          className="relative flex justify-between items-center px-1 bg-slate-800 h-6 w-12  rounded-xl"
+          onClick={themeSwitchHandler}
         >
-          Dark Mode
+          <FontAwesomeIcon icon={faMoon} className="text-yellow-500 size-4" />
+          <div
+            className={`absolute transition-transform duration-500 ease-in-out transform ${toggled ? "translate-x-full" : "translate-x-0"} bg-white size-5 rounded-full`}
+          ></div>
+          <FontAwesomeIcon icon={faSun} className="text-yellow-500 size-4" />
         </button>
         <button
           className={`${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"} profile-button`}

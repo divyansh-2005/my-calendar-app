@@ -1,48 +1,65 @@
-import { useState, useContext } from 'react';
-import axiosInstance from '../utils/axiosInstance';
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../utils/AuthContext';
-import '../styles/Login.css';  
-
+import { useState, useContext } from "react";
+import axiosInstance from "../utils/axiosInstance";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../utils/AuthContext";
+import "../styles/Login.css";
+import { ThemeContext } from "../utils/ThemeContext";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const themeCtx = useContext(ThemeContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosInstance.post('auth/login', { email, password });
-      localStorage.setItem('token', response.data.token);
+      const response = await axiosInstance.post("auth/login", {
+        email,
+        password,
+      });
+      localStorage.setItem("token", response.data.token);
       setUser(response.data.user);
-      alert('Logged in successfully');
-      console.log('Logged in successfully');
-      navigate('/');
+      alert("Logged in successfully");
+      console.log("Logged in successfully");
+      navigate("/");
     } catch (err) {
-      setError(err.response?.data?.message || 'Invalid email or password');
+      setError(err.response?.data?.message || "Invalid email or password");
     }
   };
 
   return (
-    <div className="login-page">
+    <div
+      className={`transition-all duration-300 ease-in-out ${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"} login-page`}
+    >
       {/* Left Section */}
-      <div className="left-section">
+      <div
+        className={`transition-all duration-300 ease-in-out ${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"} left-section`}
+      >
         <div className="left-text">
-          <h3>Keep track of your <span id='expense'>expenses</span> and <span id='task'>tasks</span> efficiently.</h3>
-          
+          <h3>
+            Keep track of your <span id="expense">expenses</span> and{" "}
+            <span id="task">tasks</span> efficiently.
+          </h3>
         </div>
       </div>
 
       {/* Right Section */}
-      <div className="right-section">
+      <div
+        className={`transition-all duration-300 ease-in-out ${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"} right-section`}
+      >
         <h2>Login</h2>
-        <p className='subheading'>Sign in to an existing account. </p>
-        <p className='subheading'>Don&apos;t have an account? <span className='register-link'><Link to='/register'>Register</Link></span></p>
+        <p className="subheading">Sign in to an existing account. </p>
+        <p className="subheading">
+          Don&apos;t have an account?{" "}
+          <span className="register-link">
+            <Link to="/register">Register</Link>
+          </span>
+        </p>
         <form onSubmit={handleLogin}>
-          <div className='form-div'>
+          <div className="form-div">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -53,7 +70,7 @@ const LoginPage = () => {
               required
             />
           </div>
-          <div className='form-div'>
+          <div className="form-div">
             <label htmlFor="password">Password</label>
             <input
               type="password"

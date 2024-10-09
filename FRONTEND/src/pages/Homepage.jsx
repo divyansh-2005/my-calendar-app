@@ -33,7 +33,7 @@ const HomePage = ({
 
   return (
     <div
-      className={`flex items-start justify-start w-full ${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"}`}
+      className={`flex items-start justify-start w-full transition-all duration-300 ease-in-out ${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"}`}
     >
       <Sidebar onAddExpense={handleAddExpense} onAddTodo={handleAddTodo} />
       <div className="home-page flex-1">

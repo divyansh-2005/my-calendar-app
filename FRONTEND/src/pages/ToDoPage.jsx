@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/ToDoPage.css';
-import axiosInstance from '../utils/axiosInstance';
+import React, { useState, useEffect, useContext } from "react";
+import "../styles/ToDoPage.css";
+import axiosInstance from "../utils/axiosInstance";
+import { ThemeContext } from "../utils/ThemeContext";
 
 const ToDoPage = ({ selectedDate, todos, setTodos }) => {
-  const [form, setForm] = useState({ title: '', description: '', dueDate: '' });
+  const [form, setForm] = useState({ title: "", description: "", dueDate: "" });
   const [editingTodo, setEditingTodo] = useState(null);
+  const themeCtx = useContext(ThemeContext);
 
   useEffect(() => {
     const fetchTodos = async () => {
@@ -13,7 +15,7 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
         const response = await axiosInstance.get(`/todos/${dateStr}`);
         setTodos(response.data);
       } catch (error) {
-        console.error('Error fetching todos:', error);
+        console.error("Error fetching todos:", error);
       }
     };
 
@@ -38,17 +40,21 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
     };
 
     try {
-      const response = await axiosInstance.post('/todos', newTodo);
+      const response = await axiosInstance.post("/todos", newTodo);
       setTodos([...todos, response.data]);
-      setForm({ title: '', description: '', dueDate: '' });
+      setForm({ title: "", description: "", dueDate: "" });
     } catch (error) {
-      console.error('Error adding todo:', error);
+      console.error("Error adding todo:", error);
     }
   };
 
   const handleEdit = (todo) => {
     setEditingTodo(todo);
-    setForm({ title: todo.title, description: todo.description, dueDate: todo.dueDate });
+    setForm({
+      title: todo.title,
+      description: todo.description,
+      dueDate: todo.dueDate,
+    });
   };
 
   const handleUpdate = async (e) => {
@@ -61,38 +67,56 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
     };
 
     try {
-      const response = await axiosInstance.put(`/todos/${editingTodo._id}`, updatedTodo);
-      setTodos(todos.map(todo => (todo._id === editingTodo._id ? response.data : todo)));
+      const response = await axiosInstance.put(
+        `/todos/${editingTodo._id}`,
+        updatedTodo
+      );
+      setTodos(
+        todos.map((todo) =>
+          todo._id === editingTodo._id ? response.data : todo
+        )
+      );
       setEditingTodo(null);
-      setForm({ title: '', description: '', dueDate: '' });
+      setForm({ title: "", description: "", dueDate: "" });
     } catch (error) {
-      console.error('Error updating todo:', error);
+      console.error("Error updating todo:", error);
     }
   };
 
   const handleDelete = async (id) => {
     try {
       await axiosInstance.delete(`/todos/${id}`);
-      setTodos(todos.filter(todo => todo._id !== id));
+      setTodos(todos.filter((todo) => todo._id !== id));
     } catch (error) {
-      console.error('Error deleting todo:', error);
+      console.error("Error deleting todo:", error);
     }
   };
 
   const handleToggleCompleted = async (todo) => {
     const updatedTodo = { ...todo, completed: !todo.completed };
     try {
-      const response = await axiosInstance.put(`/todos/${todo._id}`, updatedTodo);
-      setTodos(todos.map(t => (t._id === todo._id ? response.data : t)));
+      const response = await axiosInstance.put(
+        `/todos/${todo._id}`,
+        updatedTodo
+      );
+      setTodos(todos.map((t) => (t._id === todo._id ? response.data : t)));
     } catch (error) {
-      console.error('Error updating todo completion:', error);
+      console.error("Error updating todo completion:", error);
     }
   };
 
   return (
-    <div className="todo-page">
-      <h2 className='text-xl'>To-Dos for <span className='font-bold'> {selectedDate.toLocaleDateString()}</span></h2>
-      <form onSubmit={editingTodo ? handleUpdate : handleSubmit} className="todo-form mt-4 flex flex-col justify-center items-center">
+    <div
+      className={`transition-all duration-300 ease-in-out ${themeCtx.theme === "light" ? "bg-customWhite text-customGray" : "bg-customGray text-customWhite"} todo-page`}
+    >
+      <h2 className="text-xl">
+        To-Dos for{" "}
+        <span className="font-bold"> {selectedDate.toLocaleDateString()}</span>
+      </h2>
+      <form
+        onSubmit={editingTodo ? handleUpdate : handleSubmit}
+        className="todo-form mt-4 flex flex-col justify-center items-center"
+      >
         <div className="form-group max-w-xl">
           <label>Title:</label>
           <input
@@ -101,7 +125,7 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
             value={form.title}
             onChange={handleChange}
             required
-            placeholder='Title for Todo'
+            placeholder="Title for Todo"
           />
         </div>
         <div className="form-group max-w-xl">
@@ -112,7 +136,7 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
             value={form.description}
             onChange={handleChange}
             required
-            placeholder='Description'
+            placeholder="Description"
           />
         </div>
         <div className="form-group max-w-xl">
@@ -125,11 +149,13 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
             required
           />
         </div>
-        <button type="submit" className="btn">{editingTodo ? 'Update Todo' : 'Add Todo'}</button>
+        <button type="submit" className="btn">
+          {editingTodo ? "Update Todo" : "Add Todo"}
+        </button>
       </form>
       <div className="todo-list">
         {todos.length > 0 ? (
-          todos.map(todo => (
+          todos.map((todo) => (
             <div key={todo._id} className="todo-item">
               <div>
                 <input
@@ -137,12 +163,18 @@ const ToDoPage = ({ selectedDate, todos, setTodos }) => {
                   checked={todo.completed}
                   onChange={() => handleToggleCompleted(todo)}
                 />
-                <span className={todo.completed ? 'completed' : ''}>{todo.title}</span>
+                <span className={todo.completed ? "completed" : ""}>
+                  {todo.title}
+                </span>
               </div>
               <div>Description: {todo.description}</div>
               <div>Due Date: {new Date(todo.dueDate).toLocaleDateString()}</div>
-              <button onClick={() => handleEdit(todo)} className="btn">Edit</button>
-              <button onClick={() => handleDelete(todo._id)} className="btn">Delete</button>
+              <button onClick={() => handleEdit(todo)} className="btn">
+                Edit
+              </button>
+              <button onClick={() => handleDelete(todo._id)} className="btn">
+                Delete
+              </button>
             </div>
           ))
         ) : (

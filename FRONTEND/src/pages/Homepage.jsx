@@ -30,7 +30,7 @@ const HomePage = ({
   };
 
   return (
-    <div className="flex items-start justify-start w-full">
+    <div className="flex flex-col md:flex-row items-start overflow-x-hidden ">
       <Sidebar 
         onAddExpense={handleAddExpense}
         onAddTodo={handleAddTodo}

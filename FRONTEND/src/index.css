@@ -69,3 +69,18 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }*/
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+}
+
+.dark {
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}

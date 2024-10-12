@@ -6,6 +6,7 @@ import {
   faXTwitter,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom"; // Import Link
 
 const Footer = () => {
   return (
@@ -19,27 +20,26 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Your Company. All rights reserved.
         </div>
         <div className="flex space-x-2 mb-4 ">
-          <a
-            href="/about"
+          <Link
+            to="/AboutUs" 
             className="bg-customGray text-white text-base font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
           >
-            AboutUs
-          </a>
+            About Us
+          </Link>
           <p>|</p>
-          <a
-            href="/contact"
+          <Link
+            to="/ContactUs" 
             className="bg-customGray text-white text-base font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
           >
-            ContactUs
-          </a>
+            Contact Us
+          </Link>
           <p>|</p>
-          <a
-            href="/"
+          <Link
+            to="/" 
             className="bg-customGray text-white text-base font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
           >
-            {" "}
             Home
-          </a>
+          </Link>
         </div>
       </div>
       <div className="lg:col-span-1 flex flex-col items-end mr-6">

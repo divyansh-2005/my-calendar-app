@@ -3,56 +3,58 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const { userRegisterSchema, userLoginSchema } = require('../utils/validation/auth');
+const {asyncHandler} = require( '../utils/AsyncHandler');
+const  { ApiError } =  require('../utils/ApiError');
 
-// Register user
-const registerUser = async (req, res) => {
+
+// Register user -- Made the changes in this Register Route 
+const registerUser = asyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
   const { error } = userRegisterSchema.validate(req.body);
   if (error) {
-    return res.status(400).json({ message: error.details[0].message });
+    //return res.status(400).json({ message: error.details[0].message });
+    throw new ApiError(400,error.details[0].message);
   }
-  try {
-    // Check if user exists
-    let user = await User.findOne({ email });
-    if (user) {
-      return res.status(400).json({ message: 'User already exists' });
+  
+  // Check if user exists
+  let user = await User.findOne({ email });
+  if (user) {
+      //return res.status(400).json({ message: 'User already exists' });
+      throw new ApiError(409,"The User Already Exists !!");
+  }
+  user = new User({
+    username,
+    email,
+    password,
+  });
+
+  // Encrypt password
+  const salt = await bcrypt.genSalt(10);
+  user.password = await bcrypt.hash(password, salt);
+
+  await user.save();
+
+  // Create JWT
+  const payload = {
+    user: {
+      id: user.id,
+    },
+  };
+
+  jwt.sign(
+    payload,
+    process.env.JWT_SECRET,
+    { expiresIn: 3600 },
+    (err, token) => {
+      if (err) throw err;
+      res.json({ token });
     }
-    user = new User({
-      username,
-      email,
-      password,
-    });
+  );
 
-    // Encrypt password
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(password, salt);
-
-    await user.save();
-
-    // Create JWT
-    const payload = {
-      user: {
-        id: user.id,
-      },
-    };
-
-    jwt.sign(
-      payload,
-      process.env.JWT_SECRET,
-      { expiresIn: 3600 },
-      (err, token) => {
-        if (err) throw err;
-        res.json({ token });
-      }
-    );
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
-  }
-};
+});
 
 // Login user
-const loginUser = async (req, res) => {
+const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   // validation
@@ -94,10 +96,10 @@ const loginUser = async (req, res) => {
     console.error(err.message);
     res.status(500).send('Server error');
   }
-};
+});
 
 // authenticated user
-const authenticatedUser = async (req, res) => {
+const authenticatedUser = asyncHandler(async (req, res) => {
   try {
 		const userId = req.user.id;
 		const user = await User.findById(userId);
@@ -108,7 +110,7 @@ const authenticatedUser = async (req, res) => {
 	} catch (error) {
 		return res.status(500).json({ message: "Internal server error" });
 	}
-};
+});
 
 module.exports = {
   registerUser,

@@ -1,0 +1,126 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+/* Header Styles */
+.header {
+    background-color: #3b2f2f; 
+    color: #fff;
+    padding: 0.5rem; 
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
+    border-bottom: 2px solid #a7856a; 
+}
+
+.header h1 {
+    font-size: 2rem; 
+}
+
+.header p {
+    font-size: 1rem; 
+    margin-top: 0.2rem; 
+}
+
+/* Main Contact Content */
+.contact-content {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #1a1a1a;
+    color: #fff;
+    border: 1px solid #4b3f3f;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #4b3f3f;
+}
+
+/* Contact Section Styles */
+.contact-section {
+    margin-bottom: 1.5rem;
+}
+
+.contact-section h2 {
+    font-size: 1.8rem;
+    color: #a7856a;
+    margin-bottom: 0.5rem;
+}
+
+.contact-section p {
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+/* Contact Form Styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 25px; /* Increased margin for better spacing between form groups */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px; /* Added margin for spacing below the label */
+    color: #fff;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding for better touch targets */
+    border: 1px solid #4b3f3f;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #1a1a1a;
+    color: #fff;
+    transition: border-color 0.25s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #a7856a;
+    outline: none;
+}
+
+/* Button Styles */
+.submit-button {
+    padding: 0.6em 1.2em; /* Match button padding to .btn */
+    background-color: #1a1a1a; /* Background color */
+    color: #fff; /* Text color */
+    border: 1px solid transparent; /* Transparent border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 1em; /* Font size */
+    font-weight: 500; /* Font weight */
+    font-family: inherit; /* Inherit font family */
+    transition: border-color 0.25s; /* Transition for border color */
+}
+
+.submit-button:hover {
+    border-color: #646cff; /* Border color on hover */
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #4b3f3f;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    box-shadow: 0 0 10px #4b3f3f;
+}
+
+.footer p {
+    margin: 0;
+}

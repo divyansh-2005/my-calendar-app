@@ -6,6 +6,11 @@ const Calendar = ({ onDateClick }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+
   const handleDayClick = (day) => {
     setActiveDay(day);
     const selectedDate = new Date(currentYear, currentMonth, day);
@@ -46,7 +51,7 @@ const Calendar = ({ onDateClick }) => {
     <div className="calendar">
       <div className="calendar-nav">
         <div className="nav-left">
-          <div className="current-month">{`${currentMonth + 1}/${currentYear}`}</div>
+          <div className="current-month">{`${monthNames[currentMonth]} ${currentYear}`}</div>
         </div>
         <div className="nav-right">
           <button className="btn" onClick={handlePrevMonth}>

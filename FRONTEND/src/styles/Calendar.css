@@ -7,8 +7,14 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    justify-content: center; /* Center content horizontally */
   }
-  
+  .current-month {
+    font-size: 1.8em; 
+    font-weight: bold; 
+    text-align: center; /* Align the text to the center */
+   
+  }
   .nav-left {
     display: flex;
     align-items: center;

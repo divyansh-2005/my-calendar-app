@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import '../styles/Calendar.css';
 
@@ -46,6 +47,11 @@ const Calendar = ({ onDateClick }) => {
   const currentDay = today.getDate();
   const currentMonthIndex = today.getMonth();
   const currentYearNum = today.getFullYear();
+
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
 
   return (
     <div className="calendar">

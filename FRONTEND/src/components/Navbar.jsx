@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/Navbar.css';
 import { Link } from 'react-router-dom';
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,9 +15,11 @@ const Navbar = () => {
       </Link>
     </div>
     <div className="navbar-right">
+      <Link to="login">
       <button className="profile-button">
         <FontAwesomeIcon icon={faUserCircle} size="2x" />
       </button>
+      </Link>
     </div>
   </nav>
   );

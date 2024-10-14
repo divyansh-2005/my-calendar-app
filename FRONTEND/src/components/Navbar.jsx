@@ -16,9 +16,11 @@ const Navbar = () => {
       </Link>
     </div>
     <div className="navbar-right">
+      <Link to="/profile" >
       <button className="profile-button">
         <FontAwesomeIcon icon={faUserCircle} size="2x" />
       </button>
+      </Link>
     </div>
   </nav>
   );

@@ -4,6 +4,14 @@
 
 **My Calendar App** is a full-stack application designed to help users manage their schedules, expenses, to-dos, and notes all in one place. The app provides a seamless and intuitive user interface for efficient day-to-day management, along with robust backend support for secure data handling and user authentication.
 
+## This Project is officially accepted for 
+<br> 
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://raw.githubusercontent.com/SwanandD121/FeatherPerfect_fe/refs/heads/main/Untitled%20design.png" alt="GSSoC 2024 Extd" style="max-width: 50%;">
+  <img src="https://pbs.twimg.com/profile_images/1831003149072535554/leInyk8A_400x400.jpg" alt="Hacktoberfest 2024" style="max-width: 20%; margin-left: 20px;">
+</div>
+<br>
+
 ## ✨ Features
 
 - 🔐 **User Authentication**: Secure login and registration using JWT (JSON Web Tokens).

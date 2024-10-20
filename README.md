@@ -4,6 +4,28 @@
 
 **My Calendar App** is a full-stack application designed to help users manage their schedules, expenses, to-dos, and notes all in one place. The app provides a seamless and intuitive user interface for efficient day-to-day management, along with robust backend support for secure data handling and user authentication.
 
+<table align="center">
+    <thead align="center">
+        <tr border: 2px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/jinx-vi-0/BlogLog?style=flat&logo=github"/></td>
+             <td><img alt="Forks" src="https://img.shields.io/github/forks/jinx-vi-0/BlogLog?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/jinx-vi-0/BlogLog?style=flat&logo=github"/></td>
+            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/jinx-vi-0/BlogLog?style=flat&logo=github"/></td>
+           <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/jinx-vi-0/BlogLog?style=flat&color=critical&logo=github"/></td>
+        </tr>
+    </tbody>
+</table>
+
+
 ## ✨ Features
 
 - 🔐 **User Authentication**: Secure login and registration using JWT (JSON Web Tokens).

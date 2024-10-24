@@ -165,7 +165,7 @@ Ensure that the backend server is running. Use your browser to access the fronte
 
 ## 📜 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ## 🙌 Contributing
 
@@ -173,6 +173,7 @@ Contributions are welcome! Please fork the repository and create a pull request 
 For more information on how to contribute, please refer to our [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Our Valuable Contributors
+
 [![Contributors](https://contrib.rocks/image?repo=divyansh-2005/my-calendar-app)](https://github.com/divyansh-2005/my-calendar-app/graphs/contributors)
 
 ---

@@ -5,6 +5,7 @@ import {
   faInstagram,
   faXTwitter,
   faLinkedin,
+  faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom"; // Import Link
 
@@ -21,21 +22,21 @@ const Footer = () => {
         </div>
         <div className="flex space-x-2 mb-4 ">
           <Link
-            to="/AboutUs" 
+            to="/AboutUs"
             className="bg-customGray text-white text-base font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
           >
             About Us
           </Link>
           <p>|</p>
           <Link
-            to="/ContactUs" 
+            to="/ContactUs"
             className="bg-customGray text-white text-base font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
           >
             Contact Us
           </Link>
           <p>|</p>
           <Link
-            to="/" 
+            to="/"
             className="bg-customGray text-white text-base font-medium transition-colors duration-200 hover:text-blue-500 hover:underline"
           >
             Home
@@ -75,6 +76,14 @@ const Footer = () => {
             className="text-white hover:text-blue-500"
           >
             <FontAwesomeIcon icon={faLinkedin} size="2x" />
+          </a>
+          <a
+            href="https://github.com/divyansh-2005/my-calendar-app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-blue-500"
+          >
+            <FontAwesomeIcon icon={faGithub} size="2x" />
           </a>
         </div>
       </div>

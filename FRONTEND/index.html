@@ -2,12 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>My Calendar App</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="My Calendar App - Manage your schedule, expenses, tasks, and notes effortlessly." />
+    <meta name="keywords" content="Calendar, Schedule, To-Do, Expenses, Notes, React, Full-Stack, MERN" />
+    <meta name="author" content="Divyansh" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    
+    <!-- Stylesheets and Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
+    <link rel="stylesheet" href="/styles/main.css" /> <!-- Assuming main.css exists for custom styles -->
+
+    <!-- Accessibility Tags -->
+    <meta name="theme-color" content="#4a90e2" /> <!-- Primary color for mobile browser themes -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
   </head>
+  
   <body>
+    <!-- Root Element for React App -->
     <div id="root"></div>
+
+    <!-- Script for Main React Application -->
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Optional: Service Worker for PWA support -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(error => {
+            console.error('Service Worker registration failed:', error);
+          });
+        });
+      }
+    </script>
   </body>
 </html>

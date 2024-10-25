@@ -4,6 +4,29 @@
 
 **My Calendar App** is a full-stack application designed to help users manage their schedules, expenses, to-dos, and notes all in one place. The app provides a seamless and intuitive user interface for efficient day-to-day management, along with robust backend support for secure data handling and user authentication.
 
+<table align="center">
+    <thead align="center">
+        <tr border: 2px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/divyansh-2005/my-calendar-app?style=flat&logo=github"/></td>
+            <td><img alt="Forks" src="https://img.shields.io/github/forks/divyansh-2005/my-calendar-app?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/divyansh-2005/my-calendar-app?style=flat&logo=github"/></td>
+            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/divyansh-2005/my-calendar-app?style=flat&logo=github"/></td>
+            <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/divyansh-2005/my-calendar-app?style=flat&color=critical&logo=github"/></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
 ## ✨ Features
 
 - 🔐 **User Authentication**: Secure login and registration using JWT (JSON Web Tokens).
@@ -11,6 +34,34 @@
 - ✅ **To-Do Management**: Create, update, and manage tasks with due dates.
 - 🗒️ **Notes Management**: Store and organize notes with timestamps.
 - 📱 **Responsive Design**: Works across desktop and mobile devices.
+
+### 💵 How to Contribute
+
+   ![image](https://github.com/user-attachments/assets/5263dc32-ce09-4835-b964-7f996e970eb5)
+
+   #### 1. Fork the repository to your GitHub account.
+   #### 2. Clone the forked repository to your local machine.
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/my-calendar-app.git
+   ```
+   #### 3. Create a new branch for your changes.
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+   #### 4. Make your changes, whether they're bug fixes, new features, or improvements.
+   #### 5. add the change in your branch
+   ```bash
+   git add .
+   ```
+   #### 6. Commit your changes with descriptive commit messages.
+   ```bash
+   git commit -m "Add your descriptive commit message here"
+   git push origin feature/your-feature
+   ```
+   #### 7. Open a Pull Request (PR) against the main repository.
+### Additional Notes
+   #### Start working on the issue, Don't wait to get it assigned by the maintainers
+   #### Your every contribution counts, Thanks for contributing to my-calendar-app
 
 ## 💻 Technologies Used
 

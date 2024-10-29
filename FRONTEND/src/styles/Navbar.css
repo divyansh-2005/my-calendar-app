@@ -1,10 +1,15 @@
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   background-color: #1a1a1a;
   border-bottom: 1px solid #e0e0e0;
+  z-index: 1000;
 }
 
 .navbar-left,
@@ -17,17 +22,15 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #fff; 
+  color: #fff;
 }
 
 .calendar-icon {
-  color: #c6d9df;; 
+  color: #c6d9df;
   margin-right: 10px;
 }
 
 .navbar-title {
-  flex-grow: 1;
-  text-align: center;
   font-size: 1.5em;
   color: #646cff;
   font-weight: 700;
@@ -48,10 +51,56 @@
 }
 
 .profile-button:hover {
-  border-color: #646cff; 
+  border-color: #646cff;
 }
 
 .profile-button:focus,
 .profile-button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .navbar-title {
+    font-size: 1.2em;
+  }
+
+  .navbar-right {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #1a1a1a;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .navbar-right.active {
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+/* Add padding to main content to prevent it from being hidden under navbar */
+main {
+  padding-top: 90px; /* Adjust this value based on your navbar height */
 }

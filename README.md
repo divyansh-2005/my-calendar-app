@@ -178,3 +178,9 @@ For more information on how to contribute, please refer to our [CONTRIBUTING.md]
 ---
 
 For any questions or issues, feel free to contact me or raise an issue in the repository.
+
+<div align="center">
+    <a href="#top">
+        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+    </a>
+</div>

@@ -12,7 +12,7 @@ const Navbar = () => {
     <div className="navbar-left">
       <Link to="/" className="navbar-logo">
         <FontAwesomeIcon icon={faCalendarAlt} size="2x" className="calendar-icon" />
-        <span className="navbar-title">CALENDAR APP</span>
+        <span className="navbar-title">MY CALENDAR APP</span>
       </Link>
     </div>
     <div className="navbar-right">

@@ -17,7 +17,7 @@ const Footer = () => {
       </div>
       <div className="lg:col-span-1 flex flex-col items-center">
         <div className="text-center text-xl text-blue-500 font-bold mb-4">
-          &copy; {new Date().getFullYear()} Your Company. All rights reserved.
+          &copy; {new Date().getFullYear()} My Calendar App. All rights reserved.
         </div>
         <div className="flex space-x-2 mb-4 ">
           <Link
